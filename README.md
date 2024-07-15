@@ -206,6 +206,8 @@ Make sure you have the following software installed on your machine:
 ![image](https://github.com/user-attachments/assets/d1f8b6f9-765b-4850-928e-5def155a151f)
 ![image](https://github.com/user-attachments/assets/49eda289-4fd5-48cd-9c1f-4beddcd5e9ff)
 ![image](https://github.com/user-attachments/assets/214963c3-4cf8-4832-a2d0-bfd662fee94f)
+![IMG_3449](https://github.com/user-attachments/assets/e9694266-b142-481c-b01d-953083241c29)![IMG_3451](https://github.com/user-attachments/assets/7cca10bd-8f89-40a4-ba05-2f8e6fd18630)
+![IMG_3450](https://github.com/user-attachments/assets/2d219eb6-1eeb-46b0-87c0-c2bb2da05232)
 
 
 ## Thank you!!
