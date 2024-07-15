@@ -24,7 +24,7 @@ BikeHub allows users to discover nearby bike service stations, make bookings, an
 - Manage bookings and services.
 
 ## Project Structure
-![image](https://github.com/user-attachments/assets/74754134-fd0b-4c6a-a771-e4e5c09fb91f)
+![Screenshot 2024-07-15 094928](https://github.com/user-attachments/assets/2e1cb4de-f65a-4edb-968d-2290361f5e58)
 
 ## Running the application
 Make sure you have the following software installed on your machine:
@@ -33,58 +33,92 @@ Make sure you have the following software installed on your machine:
 - MongoDB Atlas Account
   
 1. Clone the repository
-  git clone https://github.com/yourusername/bikehub-services.git
-  cd bikehub-services
-2. To run the backend server
+
+    git clone https://github.com/yourusername/bikehub-services.git
+
+    cd bikehub-services
+3. To run the backend server
    - Navigate to src folder
+
      cd src
    - Install the following dependencies using the commands
+
      npm install express mongoose body-parser cors jsonwebtoken bcrypt nodemailer
    - Run the server
+
      node server.js
-3. To run the frontend code
+4. To run the frontend code
    - Install the following dependencies using the commands in the root folder
+
      npm install react-router-dom
+
      npm install react-icons
+
      npm install --save @fortawesome/react-fontawesome
+
      npm install --save @fortawesome/free-solid-svg-icons
    - Start the app
+
      npm start
      
 ## DataBase Schema Structure
-├── bike-service
-│ ├── BikeStation collection
-│ ├── Booking collection
-│ ├── Users collection
+![image](https://github.com/user-attachments/assets/65e75ed6-395f-4889-ad42-790e04d10788)
+
 
 1. Users Schema
+
   fullName: String,         
+  
   email: String,
+  
   phoneNumber: String,
+  
   userType: String,
+  
   password: String,
+  
   city: String,
+  
   pinCode: Number
-2. BikeStation
+3. BikeStation
+  
   stationName: { type: String, required: true },
+  
   location: { type: String, required: true },
+  
   address: { type: String, required: true },
+  
   contactPerson: { type: String, required: true },
+  
   contactNumber: { type: String, required: true },
+  
   description: { type: String, required: true },
+  
   services: { type: [String], required: true },
+  
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
-3. Booking Schema
+4. Booking Schema
+  
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  
   stationId: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'BikeStation' },
+  
   stationName: { type: String, required: true },
+  
   customerName: { type: String, required: true },
+  
   email: { type: String, required: true },
+  
   phone: { type: String, required: true },
+  
   vehicleModel: { type: String, required: true },
+  
   vehicleNumber: { type: String, required: true },
+  
   date: { type: Date, required: true },
+  
   services: { type: [String], required: true },
+  
   status: { type: String, default: 'Pending' },
 
 ## Sample data
