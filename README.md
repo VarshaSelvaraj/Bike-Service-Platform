@@ -13,16 +13,19 @@ BikeHub allows users to discover nearby bike service stations, make bookings, an
 - Customer Module(Login userType - customer)
 - Bike Station Owner Module(Login userType - owner)
   
-## Features for customers
+## If you login as customers
 - Discover bike services at preferred locations.
 - Make bookings.
 - Manage and track bookings.
 
-## Features for owners
+## If you login as owners
+- You will have an access to a dashboard where you can update status of the bookings and edit services.
 - Register Bike Service Stations.
 - Manage bookings and services.
 
 ## Project Structure
+![image](https://github.com/user-attachments/assets/fab695fd-1f4b-4be3-94b0-4c4596a93a17)
+
 BIKE-SERVICE
 ├── node_modules
 ├── public
