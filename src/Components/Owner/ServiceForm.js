@@ -18,7 +18,8 @@ const BikeStationRegistration = () => {
     TeflonCoating: false,
   });
   const navigate = useNavigate();
-
+ 
+  //api to handle service changes
   const handleServiceChange = (event) => {
     const { name, checked } = event.target;
     setServices((prevState) => ({
@@ -27,6 +28,7 @@ const BikeStationRegistration = () => {
     }));
   };
 
+  //api that handles submission and sends the form data to the backend routes
   const handleSubmit = async (event) => {
     event.preventDefault();
     const selectedServices = Object.keys(services).filter((service) => services[service]);
@@ -54,6 +56,7 @@ const BikeStationRegistration = () => {
         const errorResponse = await response.json();
         throw new Error(errorResponse.message || 'Network response was not ok');
       }
+      //set all the fields empty on successfull submission
       setStationName('');
       setLocation('');
       setAddress('');

@@ -37,7 +37,7 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-// Route for signup 
+// Route for signup storing all the details to db
 app.post('/signup', async (req, res) => {
   const { fullName, email, phoneNumber, userType, password, city, pinCode } = req.body;
   try {
@@ -63,7 +63,7 @@ app.post('/signup', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
-//route for login
+//route for login verifying whether the username, email are in the db and usertype is correct
 app.post('/login', async (req, res) => {
   const { email, password, userType } = req.body;
 
@@ -86,7 +86,7 @@ app.post('/login', async (req, res) => {
   }
 });
 
-// Route for registering bike station 
+// Route for registering bike station stores bike station details along with logged in userId(Owner userID)
 app.post('/bikestation/register', async (req, res) => {
   const { stationName, location, address, contactPerson, contactNumber, description, services, userId } = req.body;
 
@@ -112,7 +112,8 @@ app.post('/bikestation/register', async (req, res) => {
     res.status(400).json({ message: 'Failed to register bike station', error });
   }
 });
-//fetching bike station details
+
+//fetching bike station details using userId stored along with bikstation details
 app.get('/bikestations', async (req, res) => {
   try {
     const bikeStations = await BikeStation.find();
@@ -133,6 +134,7 @@ app.get('/bikestations/user/:userId', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
+//fetching user details to be dispalyed on profile using userId
 app.get('/user/:userId', async (req, res) => {
   const userId = req.params.userId;
 
@@ -169,7 +171,7 @@ app.get('/user/:userId', async (req, res) => {
 });
 
 
-// Route for handle bookings
+// Route for handle bookings storing booking details to db
 app.post('/bookings', async (req, res) => {
   const { userId, stationId, stationName, customerName, email, phone, vehicleModel, vehicleNumber, date, services, status = 'Pending' } = req.body;
 
@@ -256,7 +258,7 @@ app.post('/bookings', async (req, res) => {
 
   }
 });
-//Route to update the status of the booking 
+//Route to update the status of the booking and replacing in the db
 app.put('/bookings/status/:id', async (req, res) => {
   const bookingId = req.params.id;
   const { status } = req.body;
@@ -305,7 +307,7 @@ app.put('/bookings/status/:id', async (req, res) => {
 });
 
 //add,edit,remove services
-// Route to add a service to a bike station
+// Route to add a service to a bike station by matching stationID
 app.put('/bikestation/addservice/:stationId', async (req, res) => {
   const { stationId } = req.params;
   const { newService } = req.body;
@@ -326,7 +328,7 @@ app.put('/bikestation/addservice/:stationId', async (req, res) => {
   }
 });
 
-// Route to edit a service in a bike station
+// Route to edit a service in a bike station by matching stationID
 app.put('/bikestation/editservice/:stationId', async (req, res) => {
   const { stationId } = req.params;
   const { serviceIndex, updatedService } = req.body;
@@ -347,7 +349,7 @@ app.put('/bikestation/editservice/:stationId', async (req, res) => {
   }
 });
 
-// Route to remove a service from a bike station
+// Route to remove a service from a bike station by matching stationID
 app.put('/bikestation/removeservice/:stationId', async (req, res) => {
   const { stationId } = req.params;
   const { serviceIndex } = req.body;
@@ -378,7 +380,8 @@ app.get('/bookings/station/:stationId', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch bookings' });
   }
 });
-//fetching user details for the profile
+
+//posting user details for the profile
 app.post('/customer/profile', async (req, res) => {
   const { userId } = req.body;
 

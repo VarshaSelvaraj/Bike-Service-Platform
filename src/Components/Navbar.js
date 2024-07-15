@@ -7,8 +7,9 @@ const Navbar = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false); // Add this line
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
-
+  
   useEffect(() => {
+    //to display username of the logged in user fetching userId from local storage
     const loggedInUserId = localStorage.getItem('userId');
     if (!loggedInUserId) {
       console.error('User ID not found in localStorage');
@@ -27,7 +28,8 @@ const Navbar = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-
+  
+  //api to fetch userdetails with userId
   const fetchUserProfile = async (userId) => {
     try {
       const response = await fetch(`http://localhost:5000/user/${userId}`);
@@ -42,6 +44,7 @@ const Navbar = () => {
     }
   };
 
+//on logout remove userId from local storage
   const handleLogout = () => {
     localStorage.removeItem('userId');
     setUserName('');

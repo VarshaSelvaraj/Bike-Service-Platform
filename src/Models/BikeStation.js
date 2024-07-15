@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const BikeStationSchema = new mongoose.Schema({
   stationName: { type: String, required: true },
   location: { type: String, required: true },
@@ -10,7 +9,5 @@ const BikeStationSchema = new mongoose.Schema({
   services: { type: [String], required: true },
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
 });
-
 const BikeStation = mongoose.model('BikeStation', BikeStationSchema);
-
 module.exports = BikeStation;

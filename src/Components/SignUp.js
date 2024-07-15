@@ -35,13 +35,14 @@ const SignUp = () => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
+  //handling password mismatch
   const handleSubmit = (event) => {
     event.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       alert('Passwords do not match');
       return;
     }
-
+   //posting the signup details to the backend routes
     fetch('http://localhost:5000/signup', {
       method: 'POST',
       headers: {

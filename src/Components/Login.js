@@ -7,7 +7,7 @@ const Login = () => {
   const [formData, setFormData] = useState({ email: '', password: '', userType: 'Bike Station Owner' });
   const [error, setError] = useState('');
   const navigate = useNavigate();
-
+ //handles usertype changes
   const handleUserTypeChange = (event) => {
     setFormData({ ...formData, userType: event.target.value });
   };
@@ -16,6 +16,7 @@ const Login = () => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
+ //api to send login details to the backend routes to verify login
   const handleSubmit = (event) => {
     event.preventDefault();
     fetch('http://localhost:5000/login', {
@@ -29,10 +30,16 @@ const Login = () => {
     .then(data => {
       if (data.token) {
         console.log('Login successful:', data);
+
+        //as soon as successful login storing userId and token in local storage
         localStorage.setItem('userId', data.userId); 
         localStorage.setItem('token', data.token);
+
+        //set the fields to empty
         setFormData({ email: '', password: '', userType: 'Bike Station Owner' });
         alert('Login successful');
+        
+        //managing navigation after login
         if (formData.userType === 'Bike Station Owner') {
           navigate('/ownerdashboard');
         } else {

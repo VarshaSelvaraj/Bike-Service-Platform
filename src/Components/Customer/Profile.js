@@ -9,6 +9,7 @@ const CustomerProfile = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    //api to fetch logged in users details  using userId
     const fetchProfileAndBookings = async () => {
       try {
         const userId = localStorage.getItem('userId');
@@ -24,7 +25,7 @@ const CustomerProfile = () => {
         const profileData = await profileResponse.json();
         setProfile(profileData);
 
-        // Fetch user bookings
+        // api to fetch bookings of the logged in user using userId
         const bookingsResponse = await fetch(`http://localhost:5000/bookings/${userId}`);
         if (!bookingsResponse.ok) {
           throw new Error('Failed to fetch bookings');

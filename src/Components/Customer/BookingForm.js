@@ -12,15 +12,15 @@ const BookingForm = ({ station, onClose }) => {
   const [date, setDate] = useState('');
   const [selectedServices, setSelectedServices] = useState([]);
   const [status, setStatus] = useState('Pending');
-
-  const handleServiceChange = (service) => {
+  //function to handle service change adds services and send to the backend routes
+   const handleServiceChange = (service) => {
     setSelectedServices((prevSelectedServices) =>
       prevSelectedServices.includes(service)
         ? prevSelectedServices.filter((s) => s !== service)
         : [...prevSelectedServices, service]
     );
   };
-
+  //function called when form submits all details given in the booking form along with the current logged in userId is sent
   const handleSubmit = async (event) => {
     event.preventDefault();
 
