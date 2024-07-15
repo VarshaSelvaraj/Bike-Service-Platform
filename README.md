@@ -13,15 +13,20 @@ BikeHub allows users to discover nearby bike service stations, make bookings, an
 - Customer Module(Login userType - customer)
 - Bike Station Owner Module(Login userType - owner)
   
-## If you login as customers
-- Discover bike services at preferred locations.
-- Make bookings.
-- Manage and track bookings.
+## Customers
+- Create an account and can view account details after login.
+- Browse bike services at preferred locations.
+- Make an appointment to the preferred bike station.
+- Manage and track bookings
+- Will receive an email after successfull booking and when your vechicle is ready for delivery.
 
-## If you login as owners
-- You will have an access to a dashboard where you can update status of the bookings and edit services.
+## Owners
+- Create an account and will have an access to a dashboard.
 - Register Bike Service Stations.
-- Manage bookings and services.
+- Add, edit, delete services.
+- Manage bookings and status of the bookings.
+- Will receive an email when a customer make an appointment to theri registered bike station.
+- When status updated to "Ready for Delivery", an email will be sent to the customer.
 
 ## Project Structure
 ![Screenshot 2024-07-15 094928](https://github.com/user-attachments/assets/2e1cb4de-f65a-4edb-968d-2290361f5e58)
@@ -67,93 +72,127 @@ Make sure you have the following software installed on your machine:
 
 1. Users Schema
 
-  fullName: String,         
+      fullName: String,         
+      
+      email: String,
+      
+      phoneNumber: String,
+      
+      userType: String,
+      
+      password: String,
+      
+      city: String,
+      
+      pinCode: Number
+
+2. BikeStation
   
-  email: String,
-  
-  phoneNumber: String,
-  
-  userType: String,
-  
-  password: String,
-  
-  city: String,
-  
-  pinCode: Number
-3. BikeStation
-  
-  stationName: { type: String, required: true },
-  
-  location: { type: String, required: true },
-  
-  address: { type: String, required: true },
-  
-  contactPerson: { type: String, required: true },
-  
-  contactNumber: { type: String, required: true },
-  
-  description: { type: String, required: true },
-  
-  services: { type: [String], required: true },
-  
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
+      stationName: { type: String, required: true },
+      
+      location: { type: String, required: true },
+      
+      address: { type: String, required: true },
+      
+      contactPerson: { type: String, required: true },
+      
+      contactNumber: { type: String, required: true },
+      
+      description: { type: String, required: true },
+      
+      services: { type: [String], required: true },
+      
+      userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
+   
 4. Booking Schema
   
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  
-  stationId: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'BikeStation' },
-  
-  stationName: { type: String, required: true },
-  
-  customerName: { type: String, required: true },
-  
-  email: { type: String, required: true },
-  
-  phone: { type: String, required: true },
-  
-  vehicleModel: { type: String, required: true },
-  
-  vehicleNumber: { type: String, required: true },
-  
-  date: { type: Date, required: true },
-  
-  services: { type: [String], required: true },
-  
-  status: { type: String, default: 'Pending' },
+      userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+      
+      stationId: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'BikeStation' },
+      
+      stationName: { type: String, required: true },
+      
+      customerName: { type: String, required: true },
+      
+      email: { type: String, required: true },
+      
+      phone: { type: String, required: true },
+      
+      vehicleModel: { type: String, required: true },
+      
+      vehicleNumber: { type: String, required: true },
+      
+      date: { type: Date, required: true },
+      
+      services: { type: [String], required: true },
+      
+      status: { type: String, default: 'Pending' }
 
 ## Sample data
 1. User
-    fullName:"Varsha Selvaraj"
-    email:"varshaselvaraj04@gmail.com"
-    phoneNumber:"8072555204"
-    userType:"Bike Station Owner"
-    password:Hashed password
-    city:"Gobi"
-    pinCode:638476
+
+      fullName:"Varsha Selvaraj"
+     
+      email:"varshaselvaraj04@gmail.com"
+     
+      phoneNumber:"8072555204"
+     
+      userType:"Bike Station Owner"
+     
+      password:Hashed password
+     
+      city:"Gobi"
+     
+      pinCode:638476
+   
 2. BikeStation
-    stationName:"24 BikeCare Services"
-    location:"Erode"
-    address:"18a, Avalpoodurai Road, Perundurai."
-    contactPerson:"Vithya"
-    contactNumber:"9876543201"
-    description:"Doorstep pickup, convincing services, customer satisfication is our ma…"
-    services:
-      0:"GeneralService"
-      1:"WaterWash"
-      2:"RepairServices"
-    userId:6690c6d8ee7a173da20aa0a2
-3. Booking
+   
+      stationName:"24 BikeCare Services"
+     
+      location:"Erode"
+     
+      address:"18a, Avalpoodurai Road, Perundurai."
+     
+      contactPerson:"Vithya"
+     
+      contactNumber:"9876543201"
+     
+      description:"Doorstep pickup, convincing services, customer satisfication is our ma…"
+     
+      services:
+     
+        0:"GeneralService"
+     
+        1:"WaterWash"
+     
+        2:"RepairServices"
+     
+      userId:6690c6d8ee7a173da20aa0a2
+   
+5. Booking
+
     userId:6690c77aee7a173da20aa0b2
+   
     stationId:669158aaca56cadf92a92bd0
+   
     stationName:"WheelCare Bike Station"
+   
     customerName:"varsha"
+   
     email:"varshaselvaraj04@gmail.com"
+   
     phone:"8900048585"
+   
     vehicleModel:"Activa"
+   
     vehicleNumber:"TN 00 9 5885"
+   
     date:2024-08-01T00:00:00.000+00:00
+   
     services:
+   
       0:"OilChange"
+   
     status:"Pending"
    
 ## Demonstration
