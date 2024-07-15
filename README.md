@@ -202,11 +202,11 @@ Make sure you have the following software installed on your machine:
 ![image](https://github.com/user-attachments/assets/3a9be835-bc36-4776-afe1-7ff8807eab81)
 ![image](https://github.com/user-attachments/assets/2eb079b9-ca6e-46c6-9a39-702896e1ad6b)
 ![image](https://github.com/user-attachments/assets/77ae98a7-7a4b-4b60-a315-ba6e5182da5c)
-
-
+![image](https://github.com/user-attachments/assets/058b670e-a24d-403d-8de1-9830c08cf47b)
 ![image](https://github.com/user-attachments/assets/d1f8b6f9-765b-4850-928e-5def155a151f)
-![image](https://github.com/user-attachments/assets/28c8ce75-9e98-4d96-9256-37f437ad28ff)
-![image](https://github.com/user-attachments/assets/8ee017ae-1eab-4c88-b398-16b158e2148f)
+![image](https://github.com/user-attachments/assets/49eda289-4fd5-48cd-9c1f-4beddcd5e9ff)
+![image](https://github.com/user-attachments/assets/214963c3-4cf8-4832-a2d0-bfd662fee94f)
+
 
 ## Thank you!!
 
