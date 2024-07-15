@@ -24,52 +24,7 @@ BikeHub allows users to discover nearby bike service stations, make bookings, an
 - Manage bookings and services.
 
 ## Project Structure
-![image](https://github.com/user-attachments/assets/fab695fd-1f4b-4be3-94b0-4c4596a93a17)
-
-BIKE-SERVICE
-├── node_modules
-├── public
-│ ├── bikecare-icon.webp
-│ ├── bikegif.gif
-│ ├── homegif.gif
-│ ├── index.html
-│ ├── manifest.json
-│ └── robots.txt
-├── src
-│ ├── Components
-│ │ ├── Customer
-│ │ │ ├── BookingForm.js
-│ │ │ └── Profile.js
-│ │ ├── Owner
-│ │ │ ├── DashBoard.js
-│ │ │ └── ServiceForm.js
-│ │ ├── Styles
-│ │ │ ├── BookingForm.css
-│ │ │ ├── CustomerProfile.css
-│ │ │ ├── Home.css
-│ │ │ ├── Login.css
-│ │ │ ├── Navbar.css
-│ │ │ ├── OwnerDashboard.css
-│ │ │ ├── serviceform.css
-│ │ │ ├── SignUp.css
-│ │ │ └── stationdisplay.css
-│ │ ├── Navbar.js
-│ │ ├── Home.js
-│ │ ├── Login.js
-│ │ ├── SignUp.js
-│ │ ├── StationDisplay.js
-│ │ ├── Models
-│ │ │ ├── BikeStation.js
-│ │ │ ├── Booking.js
-│ │ │ └── Users.js
-│ ├── App.css
-│ ├── App.js
-│ ├── App.test.js
-│ ├── index.css
-│ ├── index.js
-│ ├── reportWebVitals.js
-│ ├── server.js
-│ └── setupTests.js
+![image](https://github.com/user-attachments/assets/74754134-fd0b-4c6a-a771-e4e5c09fb91f)
 
 ## Running the application
 Make sure you have the following software installed on your machine:
