@@ -18,7 +18,7 @@ const CustomerProfile = () => {
           setLoading(false);
           return;
         }
-        const profileResponse = await fetch(`http://localhost:5000/user/${userId}`);
+        const profileResponse = await fetch(`https://bike-service-platform.onrender.com/user/${userId}`);
         if (!profileResponse.ok) {
           throw new Error('Failed to fetch profile');
         }
@@ -26,7 +26,7 @@ const CustomerProfile = () => {
         setProfile(profileData);
 
         // api to fetch bookings of the logged in user using userId
-        const bookingsResponse = await fetch(`http://localhost:5000/bookings/${userId}`);
+        const bookingsResponse = await fetch(`https://bike-service-platform.onrender.com/bookings/${userId}`);
         if (!bookingsResponse.ok) {
           throw new Error('Failed to fetch bookings');
         }

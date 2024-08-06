@@ -16,12 +16,12 @@ const OwnerDashboard = () => {
       //stores the logged in user's userId 
       const userId = localStorage.getItem('userId');
       //fetches bike station details using userId stored along with bike station registration
-      const response = await fetch(`http://localhost:5000/bikestations/user/${userId}`);
+      const response = await fetch(`https://bike-service-platform.onrender.com/bikestations/user/${userId}`);
       const data = await response.json();
 
       const stationsWithBookings = await Promise.all(
         data.map(async (station) => {
-          const bookingResponse = await fetch(`http://localhost:5000/bookings/station/${station._id}`);
+          const bookingResponse = await fetch(`https://bike-service-platform.onrender.com/bookings/station/${station._id}`);
           const bookings = await bookingResponse.json();
           return { ...station, bookings };
         })
@@ -38,7 +38,7 @@ const OwnerDashboard = () => {
     const fetchOwnerDetails = async () => {
       try {
         const userId = localStorage.getItem('userId');
-        const response = await fetch(`http://localhost:5000/user/${userId}`);
+        const response = await fetch(`https://bike-service-platform.onrender.com/user/${userId}`);
         const data = await response.json();
         setOwnerDetails(data);
       } catch (error) {
@@ -65,7 +65,7 @@ const OwnerDashboard = () => {
   //api to handle when services are added, send new added services to the backend route
   const handleAddService = async (stationId, newService) => {
     try {
-      const response = await fetch(`http://localhost:5000/bikestation/addservice/${stationId}`, {
+      const response = await fetch(`https://bike-service-platform.onrender.com/bikestation/addservice/${stationId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ const OwnerDashboard = () => {
   const handleEditService = async () => {
     const { stationId, serviceIndex, serviceValue } = editingService;
     try {
-      const response = await fetch(`http://localhost:5000/bikestation/editservice/${stationId}`, {
+      const response = await fetch(`https://bike-service-platform.onrender.com/bikestation/editservice/${stationId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -109,7 +109,7 @@ const OwnerDashboard = () => {
   //api to handle when services are removed, sent removed services to the backend route
   const handleRemoveService = async (stationId, serviceIndex) => {
     try {
-      const response = await fetch(`http://localhost:5000/bikestation/removeservice/${stationId}`, {
+      const response = await fetch(`https://bike-service-platform.onrender.com/bikestation/removeservice/${stationId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -129,7 +129,7 @@ const OwnerDashboard = () => {
   //function to send the backend route the status changes
   const handleStatusChange = async (bookingId, newStatus) => {
     try {
-      const response = await fetch(`http://localhost:5000/bookings/status/${bookingId}`, {
+      const response = await fetch(`https://bike-service-platform.onrender.com/bookings/status/${bookingId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -28,7 +28,7 @@ const BikeStationDisplay = () => {
 //fetching bike station details using backend routes 
   const fetchBikeStations = async () => {
     try {
-      const response = await fetch('http://localhost:5000/bikestations');
+      const response = await fetch('https://bike-service-platform.onrender.com/bikestations');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }

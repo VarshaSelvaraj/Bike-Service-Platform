@@ -44,7 +44,7 @@ const BikeStationRegistration = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/bikestation/register', {
+      const response = await fetch('https://bike-service-platform.onrender.com/bikestation/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

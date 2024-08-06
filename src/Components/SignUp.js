@@ -93,7 +93,7 @@ const SignUp = () => {
     }
 
     // Posting the signup details to the backend routes
-    fetch('http://localhost:5000/signup', {
+    fetch('https://bike-service-platform.onrender.com/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

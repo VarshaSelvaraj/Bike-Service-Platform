@@ -19,7 +19,7 @@ const Login = () => {
  //api to send login details to the backend routes to verify login
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch('http://localhost:5000/login', {
+    fetch('https://bike-service-platform.onrender.com/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
