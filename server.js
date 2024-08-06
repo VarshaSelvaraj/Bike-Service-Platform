@@ -6,8 +6,8 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
-const BikeStation = require('./Models/BikeStation');
-const Booking = require('./Models/Booking');
+const BikeStation = require('./src/Models/BikeStation');
+const Booking = require('./src/Models/Booking');
 const app = express();
 const port = 5000;
 
