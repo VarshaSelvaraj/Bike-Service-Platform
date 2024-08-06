@@ -32,7 +32,7 @@ const Navbar = () => {
   //api to fetch userdetails with userId
   const fetchUserProfile = async (userId) => {
     try {
-      const response = await fetch(`https://bike-service-platform.onrender.com/${userId}`);
+      const response = await fetch(`https://bike-service-platform.onrender.com/user/${userId}`);
       if (!response.ok) {
         throw new Error('Failed to fetch user profile');
       }
